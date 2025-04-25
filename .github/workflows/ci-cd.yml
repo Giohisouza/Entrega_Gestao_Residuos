@@ -27,7 +27,7 @@ jobs:
 
       - name: Publicar para Docker
         run: |
-          docker build -t gestao-residuos:${{ github.sha }} ./Gestao.Residuos/Gestao.Residuos
+          docker build -t gestao-residuos:${{ github.sha }} ./Gestao.Residuos
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
           docker tag gestao-residuos:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/gestao-residuos:${{ github.ref_name }}
           docker push ${{ secrets.DOCKER_USERNAME }}/gestao-residuos:${{ github.ref_name }}
