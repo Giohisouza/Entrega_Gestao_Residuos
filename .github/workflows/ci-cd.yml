@@ -29,7 +29,7 @@ jobs:
         run: |
           docker build -t gestao-residuos:${{ github.sha }} ./Gestao.Residuos
           echo "${{ secrets.951976840 }}" | docker login -u "${{ secrets.Giohsouza }}" --password-stdin
-          docker tag gestao-residuos:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/gestao-residuos:${{ github.ref_name }}
+          docker tag gestao-residuos:${{ github.sha }} ${{ secrets.Giohsouza }}/gestao-residuos:${{ github.ref_name }}
           docker push ${{ secrets.DOCKER_USERNAME }}/gestao-residuos:${{ github.ref_name }}
 
   deploy:
