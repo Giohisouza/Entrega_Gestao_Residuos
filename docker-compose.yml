@@ -1,0 +1,10 @@
+services:
+  api:
+    build:
+      context: ./Gestao.Residuos # Este é o diretório onde o Dockerfile está
+      dockerfile: Dockerfile # Certifique-se de que o nome do arquivo está correto
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    restart: unless-stopped
